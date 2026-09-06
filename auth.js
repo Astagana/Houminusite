@@ -1,12 +1,9 @@
-/* Houminusite — Auth logic (register & login)
-   Penyimpanan akun disimulasikan dengan localStorage, cukup untuk demo
-   front-end. Untuk produksi, ganti bagian simpan/cek akun dengan panggilan
-   ke API/back-end sungguhan. */
+/* Houminusite — Auth logic (register & login) */
 
 const HOUMINI_USERS_KEY = 'houmini_users';
 const HOUMINI_SESSION_KEY = 'houmini_session';
 
-function getUsers(){
+function getLegacyUsers(){
   try{
     return JSON.parse(localStorage.getItem(HOUMINI_USERS_KEY)) || [];
   }catch(e){
@@ -14,8 +11,19 @@ function getUsers(){
   }
 }
 
-function saveUsers(users){
-  localStorage.setItem(HOUMINI_USERS_KEY, JSON.stringify(users));
+async function authRequest(path, body){
+  const response = await fetch(`/api/auth/${path}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  const result = await response.json().catch(() => ({}));
+  if(!response.ok){
+    const error = new Error(result.error || 'Server tidak dapat dihubungi.');
+    error.status = response.status;
+    throw error;
+  }
+  return result;
 }
 
 function setSession(user){
@@ -43,6 +51,18 @@ function passwordScore(password){
 function showBanner(el, message, type){
   el.textContent = message;
   el.className = 'form-banner show ' + type;
+}
+
+async function migrateLegacyUsers(){
+  const users = getLegacyUsers();
+  if(!users.length) return;
+
+  try{
+    await authRequest('migrate', { users });
+    localStorage.removeItem(HOUMINI_USERS_KEY);
+  }catch(error){
+    console.warn('Migrasi akun lama belum berhasil:', error.message);
+  }
 }
 
 function setFieldError(fieldEl, message){
@@ -78,7 +98,7 @@ function initRegisterForm(){
     });
   });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     banner.className = 'form-banner';
 
@@ -108,15 +128,15 @@ function initRegisterForm(){
 
     if(!valid) return;
 
-    const users = getUsers();
-    if(users.some(u => u.email === email)){
-      showBanner(banner, 'Email ini sudah terdaftar. Silakan masuk lewat halaman login.', 'error');
+    try{
+      const result = await authRequest('register', { name, email, password });
+      setSession(result.user);
+    }catch(error){
+      showBanner(banner, error.status === 409
+        ? 'Email ini sudah terdaftar. Silakan masuk lewat halaman login.'
+        : 'Penyimpanan akun sedang tidak tersedia. Jalankan server aplikasi terlebih dahulu.', 'error');
       return;
     }
-
-    users.push({ name, email, password });
-    saveUsers(users);
-    setSession({ name, email });
 
     showBanner(banner, 'Akun berhasil dibuat. Mengalihkan ke Houminusite…', 'success');
     setTimeout(() => { window.location.href = 'index.html'; }, 900);
@@ -133,7 +153,7 @@ function initLoginForm(){
   const passField = document.getElementById('field-password');
   const banner = document.getElementById('form-banner');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     banner.className = 'form-banner';
     [emailField, passField].forEach(clearFieldError);
@@ -141,21 +161,23 @@ function initLoginForm(){
     const email = document.getElementById('input-email').value.trim().toLowerCase();
     const password = document.getElementById('input-password').value;
 
-    const users = getUsers();
-    const match = users.find(u => u.email === email && u.password === password);
-
-    if(!match){
-      showBanner(banner, 'Email atau kata sandi salah. Belum punya akun? Daftar dulu, ya.', 'error');
+    try{
+      const result = await authRequest('login', { email, password });
+      setSession(result.user);
+    }catch(error){
+      showBanner(banner, error.status === 401
+        ? 'Email atau kata sandi salah. Belum punya akun? Daftar dulu, ya.'
+        : 'Server login belum tersedia. Buka aplikasi melalui server, bukan file HTML langsung.', 'error');
       return;
     }
 
-    setSession(match);
     showBanner(banner, 'Berhasil masuk. Mengalihkan ke dashboard…', 'success');
     setTimeout(() => { window.location.href = 'index.html'; }, 700);
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  migrateLegacyUsers();
   initRegisterForm();
   initLoginForm();
 });
