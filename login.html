@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masuk — Houminusite</title>
+<meta name="description" content="Masuk ke akun Houminusite Anda untuk memesan dan memantau pembuatan website.">
+<script>
+  (function(){
+    var t = localStorage.getItem('houmini_theme') ||
+      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/auth.css">
+</head>
+<body>
+
+<button class="theme-switch auth-top-toggle" data-theme-toggle type="button" aria-label="Ganti mode gelap/terang">
+  <span class="track"><span class="knob"></span></span>
+</button>
+
+<div class="auth-shell">
+
+  <aside class="auth-visual">
+    <div class="brand">Houmini<span>site</span></div>
+
+    <svg class="blueprint-art" viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M40 120 L160 40 L280 120" stroke="#EAF2F8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="60" y="120" width="200" height="110" rx="4" stroke="#EAF2F8" stroke-width="3"/>
+      <path d="M60 146 H260" stroke="#EAF2F8" stroke-width="2"/>
+      <circle class="fill-only" cx="76" cy="133" r="4" fill="#E7AC50"/>
+      <circle class="fill-only" cx="90" cy="133" r="4" fill="#EAF2F8" fill-opacity=".5"/>
+      <circle class="fill-only" cx="104" cy="133" r="4" fill="#EAF2F8" fill-opacity=".5"/>
+      <path d="M84 170 H180" stroke="#EAF2F8" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M84 188 H236" stroke="#EAF2F8" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+      <path d="M84 204 H210" stroke="#EAF2F8" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+      <path d="M148 230 V190 Q148 178 160 178 Q172 178 172 190 V230" stroke="#E7AC50" stroke-width="2.5"/>
+      <path d="M40 240 H280" stroke="#EAF2F8" stroke-width="1" opacity=".35"/>
+      <path d="M40 233 V247" stroke="#EAF2F8" stroke-width="1" opacity=".35"/>
+      <path d="M280 233 V247" stroke="#EAF2F8" stroke-width="1" opacity=".35"/>
+    </svg>
+
+    <p class="caption"><strong>Selamat datang kembali.</strong> Lanjutkan memesan atau memantau progres pembuatan website Anda bersama tim Houminusite.</p>
+  </aside>
+
+  <div class="auth-panel">
+    <div class="auth-card">
+      <h1>Masuk ke akun Anda</h1>
+      <p class="lede">Belum punya akun? Daftar dulu supaya bisa memesan website dan menyimpan riwayat pesanan.</p>
+
+      <div id="form-banner" class="form-banner" role="alert"></div>
+
+      <form id="login-form" novalidate>
+        <div class="field" id="field-email">
+          <label for="input-email">Alamat email</label>
+          <input type="email" id="input-email" name="email" placeholder="nama@email.com" autocomplete="email">
+          <p class="field-error">Masukkan alamat email yang valid.</p>
+        </div>
+
+        <div class="field" id="field-password">
+          <label for="input-password">Kata sandi</label>
+          <input type="password" id="input-password" name="password" placeholder="Kata sandi Anda" autocomplete="current-password">
+          <p class="field-error">Kata sandi wajib diisi.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+      </form>
+
+      <p class="auth-foot-link">Belum punya akun? <a href="register.html">Daftar di sini</a></p>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/theme.js"></script>
+<script src="assets/auth.js"></script>
+</body>
+</html>

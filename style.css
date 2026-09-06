@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Houminusite — Global Foundation
+   Konsep: "cetak biru rumah" (blueprint rumah) dipadukan dengan situs web.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg: #FAF6EF;
+  --bg-elevated: #FFFFFF;
+  --bg-sunken: #F1ECE1;
+  --ink: #1E2530;
+  --ink-soft: #5B6472;
+  --ink-faint: #8A8F98;
+  --blueprint: #2F6690;
+  --blueprint-strong: #1F4C6E;
+  --blueprint-soft: #E3EDF3;
+  --accent: #D98E2E;
+  --accent-ink: #5A3B0F;
+  --line: #DAD3C3;
+  --success: #3F8F6F;
+  --danger: #B84C3E;
+  --shadow: 0 1px 0 rgba(30,37,48,0.04);
+  --radius-s: 3px;
+  --radius-m: 6px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme="dark"]{
+  --bg: #101826;
+  --bg-elevated: #17223399;
+  --bg-elevated: #172233;
+  --bg-sunken: #0B1220;
+  --ink: #EAE7DD;
+  --ink-soft: #A6AEBB;
+  --ink-faint: #6E7686;
+  --blueprint: #74AAD6;
+  --blueprint-strong: #9CC6E8;
+  --blueprint-soft: #1C2C40;
+  --accent: #E7AC50;
+  --accent-ink: #2A1B04;
+  --line: #263349;
+  --success: #67BC9B;
+  --danger: #D97A6C;
+  --shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ color-scheme: light; }
+html[data-theme="dark"]{ color-scheme: dark; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .25s ease, color .25s ease;
+}
+
+h1, h2, h3, h4{
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0 0 .5em 0;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+p{ margin: 0 0 1em 0; color: var(--ink-soft); max-width: 62ch; }
+
+a{ color: inherit; }
+
+button, input, select, textarea{ font-family: inherit; }
+
+::selection{ background: var(--accent); color: var(--accent-ink); }
+
+:focus-visible{
+  outline: 2px solid var(--blueprint);
+  outline-offset: 2px;
+}
+
+/* Buttons ---------------------------------------------------------------- */
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  border-radius: var(--radius-m);
+  border: 1px solid transparent;
+  padding: .75em 1.4em;
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .12s ease, background-color .15s ease, border-color .15s ease;
+  line-height: 1;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn-primary{
+  background: var(--blueprint);
+  color: #FBFBF8;
+}
+.btn-primary:hover{ background: var(--blueprint-strong); }
+
+.btn-accent{
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-accent:hover{ filter: brightness(1.06); }
+
+.btn-ghost{
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+.btn-ghost:hover{ border-color: var(--blueprint); color: var(--blueprint); }
+
+.btn-block{ width: 100%; }
+
+/* Form fields -------------------------------------------------------------*/
+
+.field{ margin-bottom: 1.2em; text-align: left; }
+
+.field label{
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: .4em;
+}
+
+.field input{
+  width: 100%;
+  padding: .75em .9em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--bg-elevated);
+  color: var(--ink);
+  font-size: .95rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.field input:focus{
+  border-color: var(--blueprint);
+  box-shadow: 0 0 0 3px var(--blueprint-soft);
+  outline: none;
+}
+
+.field-hint{ font-size: .78rem; color: var(--ink-faint); margin-top: .4em; }
+.field-error{ font-size: .78rem; color: var(--danger); margin-top: .4em; display: none; }
+.field.has-error input{ border-color: var(--danger); }
+.field.has-error .field-error{ display: block; }
+
+.form-banner{
+  border-radius: var(--radius-m);
+  padding: .8em 1em;
+  font-size: .88rem;
+  margin-bottom: 1.2em;
+  display: none;
+}
+.form-banner.show{ display: block; }
+.form-banner.error{ background: rgba(184,76,62,0.12); color: var(--danger); border: 1px solid rgba(184,76,62,0.3); }
+.form-banner.success{ background: rgba(63,143,111,0.12); color: var(--success); border: 1px solid rgba(63,143,111,0.3); }
+
+/* Theme toggle switch ------------------------------------------------------*/
+
+.theme-switch{
+  display: inline-flex;
+  align-items: center;
+  gap: .6em;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  font-size: .82rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+.theme-switch .track{
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--bg-sunken);
+  border: 1px solid var(--line);
+  position: relative;
+  transition: background-color .2s ease;
+}
+.theme-switch .knob{
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--blueprint);
+  transition: transform .2s ease, background-color .2s ease;
+}
+[data-theme="dark"] .theme-switch .knob{
+  transform: translateX(18px);
+  background: var(--accent);
+}
+
+/* Utility ------------------------------------------------------------------*/
+
+.visually-hidden{
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}

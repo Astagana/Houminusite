@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Houminusite — Jasa Pembuatan Website</title>
+<meta name="description" content="Houminusite merancang dan membangun website usaha Anda: landing page, profil usaha, hingga toko online.">
+<script>
+  (function(){
+    var t = localStorage.getItem('houmini_theme') ||
+      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/dashboard.css">
+</head>
+<body>
+
+<div class="sidebar-scrim"></div>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+      Houmini<span>site</span>
+    </div>
+
+    <nav>
+      <button class="nav-item" data-target="beranda" data-label="Beranda">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+        Beranda
+      </button>
+      <button class="nav-item" data-target="paket" data-label="Paket Harga">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 12.83 21.17a2 2 0 0 1-2.83 0l-8-8A2 2 0 0 1 2 11.83V4a2 2 0 0 1 2-2h7.83a2 2 0 0 1 1.41.59l8 8a2 2 0 0 1 0 2.82Z"/><circle cx="7.5" cy="7.5" r="1.4" fill="currentColor" stroke="none"/></svg>
+        Paket Harga
+      </button>
+      <button class="nav-item" data-target="portofolio" data-label="Portofolio">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+        Portofolio
+      </button>
+      <button class="nav-item" data-target="testimoni" data-label="Testimoni">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Testimoni
+      </button>
+      <button class="nav-item" data-target="tentang" data-label="Tentang Kami">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        Tentang Kami
+      </button>
+      <button class="nav-item" data-target="kontak" data-label="Pesan Sekarang">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Pesan Sekarang
+      </button>
+      <a class="nav-item" href="pesanan/pesanan.html">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+        Formulir Pesanan
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-user">
+        <div class="avatar" data-user-initials>—</div>
+        <div class="who">
+          <div class="name" data-user-name>—</div>
+          <div class="role">Klien Houminusite</div>
+        </div>
+      </div>
+      <a class="logout-link" href="pesanan/admin.html" style="font-size:.78rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Panel Admin (staf)
+      </a>
+      <button class="logout-link" data-logout type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Keluar
+      </button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div style="display:flex; align-items:center; gap:.9rem;">
+        <button class="btn btn-ghost sidebar-toggle" type="button" aria-label="Buka menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="page-title" id="page-title">Beranda</span>
+      </div>
+      <div class="topbar-actions">
+        <button class="theme-switch" data-theme-toggle type="button" aria-label="Ganti mode gelap/terang">
+          <span class="track"><span class="knob"></span></span>
+          <span class="mode-label">Mode</span>
+        </button>
+        <button class="btn btn-accent" data-goto="paket" type="button">Pesan Website</button>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- ======================= BERANDA ======================= -->
+      <section class="page-section" id="beranda">
+        <div class="hero">
+          <div>
+            <h1>Rumah digital untuk usaha Anda, dibangun dari sketsa.</h1>
+            <p class="lede">Houminusite merancang dan membangun website — dari landing page sederhana sampai toko online lengkap — dengan proses yang jelas, tanpa istilah teknis yang membingungkan, dan harga yang masuk akal.</p>
+            <div class="hero-cta">
+              <button class="btn btn-primary" data-goto="paket" type="button">Lihat Paket Harga</button>
+              <button class="btn btn-ghost" id="wa-hero" type="button">Konsultasi via WhatsApp</button>
+            </div>
+            <div class="hero-stats">
+              <div class="stat"><b>50±</b><span>Situs sudah dibangun</span></div>
+              <div class="stat"><b>4.9/5</b><span>Rating dari klien</span></div>
+              <div class="stat"><b>1-7</b><span>Hari pengerjaan</span></div>
+            </div>
+          </div>
+
+          <svg class="hero-art" viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M50 150 L180 60 L310 150" stroke="var(--blueprint)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="72" y="150" width="216" height="130" rx="4" stroke="var(--blueprint)" stroke-width="3"/>
+            <path d="M72 178 H288" stroke="var(--blueprint)" stroke-width="2"/>
+            <circle class="fill-only" cx="90" cy="164" r="4" fill="var(--accent)"/>
+            <circle class="fill-only" cx="105" cy="164" r="4" fill="var(--blueprint)" fill-opacity=".4"/>
+            <circle class="fill-only" cx="120" cy="164" r="4" fill="var(--blueprint)" fill-opacity=".4"/>
+            <path d="M96 202 H210" stroke="var(--blueprint)" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M96 220 H264" stroke="var(--blueprint)" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+            <path d="M96 236 H240" stroke="var(--blueprint)" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+            <rect class="fill-only" x="96" y="252" width="70" height="20" rx="3" fill="var(--accent)" opacity=".9"/>
+            <path d="M50 292 H310" stroke="var(--blueprint)" stroke-width="1" opacity=".3"/>
+            <path d="M50 285 V299" stroke="var(--blueprint)" stroke-width="1" opacity=".3"/>
+            <path d="M310 285 V299" stroke="var(--blueprint)" stroke-width="1" opacity=".3"/>
+          </svg>
+        </div>
+
+        <div class="section-head">
+          <h2>Cara kerja kami</h2>
+          <p>Empat tahap sederhana dari obrolan pertama sampai situs Anda tayang.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-no">01</div>
+            <h3>Konsultasi</h3>
+            <p>Ceritakan kebutuhan usaha Anda, kami bantu tentukan paket dan fitur yang pas.</p>
+          </div>
+          <div class="step">
+            <div class="step-no">02</div>
+            <h3>Rancang</h3>
+            <p>Kami susun sketsa tata letak dan pilihan desain sebelum masuk tahap produksi.</p>
+          </div>
+          <div class="step">
+            <div class="step-no">03</div>
+            <h3>Bangun</h3>
+            <p>Website dikerjakan, diisi konten, dan diuji di berbagai ukuran layar.</p>
+          </div>
+          <div class="step">
+            <div class="step-no">04</div>
+            <h3>Serah Terima</h3>
+            <p>Situs aktif, Anda menerima akses penuh beserta panduan pemakaian singkat.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= PAKET HARGA ======================= -->
+      <section class="page-section" id="paket">
+        <div class="section-head">
+          <h2>Paket harga</h2>
+          <p>Pilih paket sesuai kebutuhan. Semua paket sudah termasuk desain, pengerjaan, dan pendampingan hingga situs tayang.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Starter</h3>
+            <p class="price-tagline">Landing page satu halaman</p>
+            <div class="price">Rp. 150,000<small> / sekali bayar</small></div>
+            <ul>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>1 halaman, tampilan responsif</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Formulir kontak terhubung email</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Optimasi kecepatan dasar</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Selesai dalam 3–5 hari kerja</li>
+            </ul>
+            <button class="btn btn-ghost btn-block" data-buy="Starter" type="button">Pilih Starter</button>
+            <a class="price-form-link" href="pesanan/pesanan.html?paket=Starter">atau isi formulir pesanan →</a>
+          </div>
+
+          <div class="price-card is-popular">
+            <span class="popular-flag">Paling dipilih</span>
+            <h3>Bisnis</h3>
+            <p class="price-tagline">Website profil usaha</p>
+            <div class="price">Rp. 325,000<small> / sekali bayar</small></div>
+            <ul>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Hingga 5 halaman (beranda–kontak)</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Desain khusus sesuai identitas usaha</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Terhubung Google Maps & WhatsApp</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Selesai dalam 7–10 hari kerja</li>
+            </ul>
+            <button class="btn btn-primary btn-block" data-buy="Bisnis" type="button">Pilih Bisnis</button>
+            <a class="price-form-link" href="pesanan/pesanan.html?paket=Bisnis">atau isi formulir pesanan →</a>
+          </div>
+
+          <div class="price-card">
+            <h3>Toko Online</h3>
+            <p class="price-tagline">Website jualan lengkap</p>
+            <div class="price">Rp. 575,000<small> / sekali bayar</small></div>
+            <ul>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Katalog produk & keranjang belanja</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Pembayaran transfer & QRIS</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Panel kelola produk mandiri</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>Selesai dalam 10–14 hari kerja</li>
+            </ul>
+            <button class="btn btn-ghost btn-block" data-buy="Toko Online" type="button">Pilih Toko Online</button>
+            <a class="price-form-link" href="pesanan/pesanan.html?paket=Toko%20Online">atau isi formulir pesanan →</a>
+          </div>
+        </div>
+
+        <div class="price-card-full">
+          <div>
+            <h3>Butuh sistem khusus?</h3>
+            <p>Aplikasi web, area member, atau integrasi khusus lainnya — mulai dari Rp9jt, menyesuaikan kebutuhan.</p>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:flex-end; gap:.4rem;">
+            <button class="btn btn-accent" data-buy="Custom / Kebutuhan Khusus" type="button">Diskusikan Kebutuhan</button>
+            <a class="price-form-link" href="pesanan/pesanan.html?paket=Custom">atau isi formulir pesanan →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= PORTOFOLIO ======================= -->
+      <section class="page-section" id="portofolio">
+        <div class="section-head">
+          <h2>Portofolio terbaru</h2>
+          <p>Sebagian situs yang sudah kami bangun untuk berbagai jenis usaha.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <div class="portfolio-thumb" style="background: var(--blueprint-soft);">
+              <svg width="64" height="52" viewBox="0 0 64 52" fill="none" stroke="var(--blueprint)" stroke-width="2"><rect x="4" y="4" width="56" height="44" rx="3"/><line x1="4" y1="16" x2="60" y2="16"/><circle cx="12" cy="10" r="1.6" fill="var(--blueprint)" stroke="none"/><line x1="12" y1="26" x2="40" y2="26"/><line x1="12" y1="34" x2="52" y2="34"/></svg>
+            </div>
+            <div class="meta"><h4>Kopi Ranting</h4><span class="tag">Landing Page — Paket Starter</span></div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-thumb" style="background: var(--blueprint-soft);">
+              <svg width="64" height="52" viewBox="0 0 64 52" fill="none" stroke="var(--blueprint)" stroke-width="2"><rect x="4" y="4" width="56" height="44" rx="3"/><line x1="4" y1="16" x2="60" y2="16"/><circle cx="12" cy="10" r="1.6" fill="var(--blueprint)" stroke="none"/><rect x="12" y="22" width="16" height="20" rx="1"/><line x1="34" y1="24" x2="52" y2="24"/><line x1="34" y1="32" x2="52" y2="32"/></svg>
+            </div>
+            <div class="meta"><h4>Klinik Senyum Sehat</h4><span class="tag">Profil Usaha — Paket Bisnis</span></div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-thumb" style="background: var(--blueprint-soft);">
+              <svg width="64" height="52" viewBox="0 0 64 52" fill="none" stroke="var(--blueprint)" stroke-width="2"><rect x="4" y="4" width="56" height="44" rx="3"/><line x1="4" y1="16" x2="60" y2="16"/><circle cx="12" cy="10" r="1.6" fill="var(--blueprint)" stroke="none"/><rect x="12" y="22" width="12" height="12" rx="1"/><rect x="28" y="22" width="12" height="12" rx="1"/><rect x="44" y="22" width="12" height="12" rx="1"/></svg>
+            </div>
+            <div class="meta"><h4>Butik Alea</h4><span class="tag">Toko Online — Paket Toko Online</span></div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-thumb" style="background: var(--blueprint-soft);">
+              <svg width="64" height="52" viewBox="0 0 64 52" fill="none" stroke="var(--blueprint)" stroke-width="2"><rect x="4" y="4" width="56" height="44" rx="3"/><line x1="4" y1="16" x2="60" y2="16"/><circle cx="12" cy="10" r="1.6" fill="var(--blueprint)" stroke="none"/><line x1="12" y1="26" x2="52" y2="26"/><line x1="12" y1="34" x2="30" y2="34"/></svg>
+            </div>
+            <div class="meta"><h4>Studio Kayu Purna</h4><span class="tag">Portofolio — Paket Starter</span></div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-thumb" style="background: var(--blueprint-soft);">
+              <svg width="64" height="52" viewBox="0 0 64 52" fill="none" stroke="var(--blueprint)" stroke-width="2"><rect x="4" y="4" width="56" height="44" rx="3"/><line x1="4" y1="16" x2="60" y2="16"/><circle cx="12" cy="10" r="1.6" fill="var(--blueprint)" stroke="none"/><rect x="12" y="22" width="16" height="20" rx="1"/><line x1="34" y1="24" x2="52" y2="24"/><line x1="34" y1="32" x2="52" y2="32"/></svg>
+            </div>
+            <div class="meta"><h4>Bimbel Cerdas</h4><span class="tag">Profil Usaha — Paket Bisnis</span></div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-thumb" style="background: var(--blueprint-soft);">
+              <svg width="64" height="52" viewBox="0 0 64 52" fill="none" stroke="var(--blueprint)" stroke-width="2"><rect x="4" y="4" width="56" height="44" rx="3"/><line x1="4" y1="16" x2="60" y2="16"/><circle cx="12" cy="10" r="1.6" fill="var(--blueprint)" stroke="none"/><rect x="12" y="22" width="12" height="12" rx="1"/><rect x="28" y="22" width="12" height="12" rx="1"/><rect x="44" y="22" width="12" height="12" rx="1"/></svg>
+            </div>
+            <div class="meta"><h4>Warung Ibu Sri</h4><span class="tag">Toko Online — Paket Toko Online</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= TESTIMONI ======================= -->
+      <section class="page-section" id="testimoni">
+        <div class="section-head">
+          <h2>Kata mereka</h2>
+          <p>Sebagian cerita dari klien yang sudah menggunakan Houminusite.</p>
+        </div>
+
+        <div class="testi-grid">
+          <div class="testi-card">
+            <p>"Website kami jadi lebih rapi dan lebih gampang ditemukan pelanggan baru lewat pencarian."</p>
+            <div class="testi-who">
+              <div class="avatar">R</div>
+              <div><div class="name">Rina</div><div class="biz">Kopi Ranting</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <p>"Prosesnya jelas sejak awal, tidak ada biaya tersembunyi, dan progresnya selalu dikabari."</p>
+            <div class="testi-who">
+              <div class="avatar">B</div>
+              <div><div class="name">Bimo</div><div class="biz">Bengkel Bimo Motor</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <p>"Tim Houminusite sabar sekali menjelaskan setiap tahap ke saya yang awam soal teknologi."</p>
+            <div class="testi-who">
+              <div class="avatar">S</div>
+              <div><div class="name">Sri</div><div class="biz">Warung Ibu Sri</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= TENTANG KAMI ======================= -->
+      <section class="page-section" id="tentang">
+        <div class="section-head">
+          <h2>Tentang Houminusite</h2>
+        </div>
+
+        <div class="about-grid">
+          <div>
+            <p>Houminusite dimulai dari hal sederhana: banyak usaha kecil dan menengah butuh website yang bagus, tapi bingung harus mulai dari mana dan takut biayanya tidak masuk akal.</p>
+            <p>Kami memilih pendekatan seperti membangun rumah — dimulai dari sketsa, disepakati bersama, baru dikerjakan sampai selesai. Tidak ada istilah teknis yang membingungkan, tidak ada biaya siluman.</p>
+            <p>Setiap situs yang kami bangun disesuaikan dengan karakter usaha pemiliknya, bukan sekadar templat yang diganti nama dan logo.</p>
+          </div>
+
+          <div class="about-values">
+            <div class="value">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div><h4>Pengerjaan tepat waktu</h4><p>Estimasi hari kerja disepakati di awal dan kami pegang.</p></div>
+            </div>
+            <div class="value">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <div><h4>Harga di depan, tanpa kejutan</h4><p>Rincian biaya disampaikan sebelum pengerjaan dimulai.</p></div>
+            </div>
+            <div class="value">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div><h4>Pendampingan setelah rilis</h4><p>Kami bantu jika ada pertanyaan setelah situs Anda tayang.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================= KONTAK / PESAN ======================= -->
+      <section class="page-section" id="kontak">
+        <div class="section-head">
+          <h2>Pesan website Anda</h2>
+          <p>Pilih paket yang Anda minati, lalu lanjutkan obrolan dengan kami di WhatsApp.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3 style="font-size:1rem; margin-bottom:.9rem;">Paket yang diminati</h3>
+            <div class="chip-row">
+              <button class="chip" data-chip="Starter" type="button">Starter — Rp750rb</button>
+              <button class="chip is-selected" data-chip="Bisnis" type="button">Bisnis — Rp2,5jt</button>
+              <button class="chip" data-chip="Toko Online" type="button">Toko Online — Rp5,5jt</button>
+              <button class="chip" data-chip="Custom / Kebutuhan Khusus" type="button">Kebutuhan khusus</button>
+            </div>
+            <p style="font-size:.85rem; margin-bottom:0;">Tombol di bawah akan membuka WhatsApp dengan pesan yang sudah kami siapkan — Anda tinggal kirim dan ceritakan kebutuhan situs Anda lebih lanjut.</p>
+            <button class="btn btn-primary wa-btn" id="wa-general" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .15 5.35.15 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.32-1.66a11.86 11.86 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.35 11.9-11.9 0-3.18-1.24-6.16-3.44-8.42Zm-8.46 18.3h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.98 1-3.66-.24-.38a9.87 9.87 0 0 1-1.51-5.23c0-5.46 4.44-9.9 9.92-9.9a9.86 9.86 0 0 1 9.9 9.91c0 5.46-4.45 9.87-9.91 9.87Zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.24-.46-2.37-1.47-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.19 5.06 4.47.71.3 1.26.49 1.69.63.71.22 1.35.19 1.86.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg>
+              Kirim Pesan via WhatsApp
+            </button>
+            <a class="price-form-link" id="link-to-order-form" href="pesanan/pesanan.html?paket=Bisnis" style="display:block; text-align:center; margin-top:.8rem;">atau isi formulir pesanan lengkap →</a>
+          </div>
+
+          <div>
+            <p>Ada pertanyaan sebelum pesan? Hubungi kami lewat kontak berikut, biasanya kami balas dalam hitungan jam.</p>
+            <div class="contact-info">
+              <div class="row">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.99.36 1.96.68 2.89a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.19-1.19a2 2 0 0 1 2.11-.45c.93.32 1.9.55 2.89.68A2 2 0 0 1 22 16.92z"/></svg>
+                <div><b>0822-5350-7804</b><span>WhatsApp & telepon</span></div>
+              </div>
+              <div class="row">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div><b>halo@houminusite.id</b><span>Email untuk pertanyaan detail</span></div>
+              </div>
+              <div class="row">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <div><b>Senin–Sabtu, 09.00–20.00</b><span>Waktu Indonesia Barat</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="assets/theme.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById('wa-hero').addEventListener('click', function(){
+    window.open('https://wa.me/6282253507804?text=' + encodeURIComponent('Halo, Saya ingin membeli jasa pembuatan website'), '_blank', 'noopener');
+  });
+</script>
+</body>
+</html>
